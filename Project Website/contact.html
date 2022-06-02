@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style2.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+
+    <title>Contact Us</title>
+  </head>
+
+  <body>
+    <div class="d-flex flex-column min-vh-100">
+      <div class="postion-relative">
+        <nav
+          class="navbar navbar-expand-lg navbar-dark shadow position-relative"
+          style="background-color: #060508"
+        >
+          <div class="container-fluid my-1">
+            <a class="navbar-brand" href="/ ">Catch This Sport</a>
+            <button
+              class="navbar-toggler"
+              type="button "
+              data-bs-toggle="collapse "
+              data-bs-target="#navbarSupportedContent "
+              aria-controls="navbarSupportedContent "
+              aria-expanded="false "
+              aria-label="Toggle navigation "
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent ">
+              <form
+                class="d-grid gap-2 d-md-flex justify-content-md-end ms-auto"
+              >
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page "
+                    href="/home.html "
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page "
+                    href="/login.html "
+                    >Login</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page "
+                    href="/signUp.html "
+                    >Sign Up</a
+                  >
+                </li>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="flex-grow-1 d-flex justify-content-center">
+        <form class="contact-form">
+          <div class="form__header">
+            <h1>Contact Us</h1>
+            <p style="color: black">Any Queries? Connect With Us</p>
+          </div>
+          <div class="line-break"></div>
+          <div class="form-group">
+            <label for="name">Full Name<span>*</span></label>
+            <input id="name" name="name" type="text" />
+            <div class="error" id="name__error"></div>
+          </div>
+          <div class="line-break"></div>
+          <div class="form-group">
+            <label for="contact">Contact</label>
+            <input id="contact" name="contact" type="text" />
+          </div>
+          <div class="line-break"></div>
+          <div class="form-group">
+            <label for="about">How can we help?</label>
+            <textarea id="about" name="about_info"></textarea>
+          </div>
+          <input type="submit" value="Submit Info" id="submit" />
+        </form>
+      </div>
+    </div>
+    <!-- partial -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+      } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyC8p1_1W0cdIsp8YIO4M1WUfJLPd0gr9Co",
+        authDomain: "catch-this-sport.firebaseapp.com",
+        projectId: "catch-this-sport",
+        storageBucket: "catch-this-sport.appspot.com",
+        messagingSenderId: "709184570116",
+        appId: "1:709184570116:web:9ddf4eb78d2a6e4d8a8651",
+        measurementId: "G-Q8XZLEKVMR",
+      };
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      const submitButton = document.getElementById("submit");
+
+      const submitResponse = async (e) => {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const contact = document.getElementById("contact").value;
+        const about = document.getElementById("about").value;
+        console.log(name, contact, about)
+
+        try {
+            const docRef = await addDoc(collection(db, "contactUs"), {
+              name,
+              contact,
+              about
+            });
+            alert("Successfully Submitted Response")
+            console.log("Document written with ID: ", docRef.id);
+          } catch (e) {
+              alert("SOmething went wrong")
+            console.error("Error adding document: ", e);
+          }
+
+      };
+
+      submitButton.addEventListener("click", submitResponse);
+    </script>
+  </body>
+</html>

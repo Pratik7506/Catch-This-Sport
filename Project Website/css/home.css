@@ -1,0 +1,117 @@
+.event-card {
+  cursor: pointer;
+  color: white;
+  font-family: "Montserrat", sans-serif !important;
+  background-color: black;
+  border: 3px solid rgb(3, 3, 3);
+  padding: 20px;
+  border-radius: 20px;
+  background: rgb(40, 40, 184);
+background: linear-gradient(225deg, rgba(160,160,173,1) 1%, rgba(13,10,10,1) 50%, rgba(3,4,4,1) 79%, rgba(6,1,1,1) 88%); 
+  
+  height: 220px;
+  transition: 0.5s;
+}
+
+body{
+    background-color: #111;
+}
+.event-card:hover {
+  transform: scale(1.069);
+  transition: 0.5s;
+}
+
+.event-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.event-title > span {
+  padding: 2px;
+  font-size: x-large;
+  font-weight: 1000;
+}
+
+.event-logo,
+.modal-header-logo {
+  border-radius: 50%;
+  border: 2px solid rgb(253, 252, 252);
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  background-position: center;
+}
+
+.event-row {
+  align-items: center !important;
+}
+
+.modal {
+  background-color: #00000085;
+}
+
+.modal-header-logo {
+  width: 75px;
+  height: 75px;
+}
+
+.modal-content {
+  color: #ffffff;
+  background-color: #1a1a1a;
+  border: none;
+  border-radius: 0.69rem;
+}
+
+.modal-header,
+.modal-footer {
+  border-color: #484848;
+}
+
+.modal-header {
+  /* justify-content: space-between; */
+}
+
+.modal-footer .btn-secondary {
+  background-color: #d5d5d5;
+  color: black;
+}
+
+.modal-footer .btn-secondary:hover {
+  opacity: 0.5;
+}
+
+.modal-header-wrapper {
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-left,
+.modal-right {
+  display: flex;
+  align-items: center;
+}
+
+.modal-right{
+  margin-right: 5px;
+}
+
+.modal-title {
+  letter-spacing: 1px;
+}
+
+.modal-footer {
+  justify-content: space-between;
+}
+
+.modal-header .btn-close {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background-color: #d5d5d5;
+  opacity: 1;
+}
+.modal-header .btn-close:hover {
+  opacity: 0.5;
+}
